@@ -13,6 +13,7 @@
 		79FD86A61C7F50F2007D0DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79FD86A51C7F50F2007D0DB4 /* Assets.xcassets */; };
 		79FD86A91C7F50F2007D0DB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79FD86A71C7F50F2007D0DB4 /* LaunchScreen.storyboard */; };
 		79FD86B41C7F50F2007D0DB4 /* CaculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD86B31C7F50F2007D0DB4 /* CaculatorTests.swift */; };
+		79FFAB1E1C94FB16006EEA7D /* CaculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FFAB1D1C94FB16006EEA7D /* CaculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		79FD86AF1C7F50F2007D0DB4 /* CaculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79FD86B31C7F50F2007D0DB4 /* CaculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorTests.swift; sourceTree = "<group>"; };
 		79FD86B51C7F50F2007D0DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79FFAB1D1C94FB16006EEA7D /* CaculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				79FD869E1C7F50F2007D0DB4 /* AppDelegate.swift */,
 				79FD86A01C7F50F2007D0DB4 /* ViewController.swift */,
+				79FFAB1D1C94FB16006EEA7D /* CaculatorBrain.swift */,
 				79FD86A21C7F50F2007D0DB4 /* Main.storyboard */,
 				79FD86A51C7F50F2007D0DB4 /* Assets.xcassets */,
 				79FD86A71C7F50F2007D0DB4 /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79FFAB1E1C94FB16006EEA7D /* CaculatorBrain.swift in Sources */,
 				79FD86A11C7F50F2007D0DB4 /* ViewController.swift in Sources */,
 				79FD869F1C7F50F2007D0DB4 /* AppDelegate.swift in Sources */,
 			);
@@ -390,6 +394,7 @@
 				79FD86BA1C7F50F2007D0DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79FD86BB1C7F50F2007D0DB4 /* Build configuration list for PBXNativeTarget "CaculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +403,7 @@
 				79FD86BD1C7F50F2007D0DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

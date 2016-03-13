@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     var userIsInMiddleOfTypingANumber = false
     
+    var brain = CaculatorBrain()
+    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if (!userIsInMiddleOfTypingANumber) {
@@ -26,60 +28,36 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
         if userIsInMiddleOfTypingANumber {
             enter()
         }
-        switch operation {
-        case "×":
-            performOperation({$0 * $1})
-            break
-        case "÷":
-            performOperation({$1 / $0})
-            break
-        case "−":
-            performOperation({$1 - $0})
-            break
-        case "+":
-            performOperation({$0 + $1})
-            break
-        case "√":
-            performUnaryOperation({sqrt($0)})
-            break
-        default:
-            break
+        if let operation = sender.currentTitle {
+            displayValue = brain.performOperation(operation)
         }
     }
-    
-    func performOperation(operation: (Double, Double) -> Double) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.popLast()!, operandStack.popLast()!)
-            enter()
-        }
-    }
-    
-    func performUnaryOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.popLast()!)
-            enter()
-        }
-    }
-    
-    var operandStack = Array<Double>()
     
     @IBAction func enter() {
         userIsInMiddleOfTypingANumber = false
-        operandStack.append(displayValue)
-        print("operandStack=\(operandStack)\n")
+        if displayValue != nil {
+            displayValue = brain.pushOperand(displayValue!)
+        }
     }
     
-    var displayValue : Double {
+    var displayValue : Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if let number = NSNumberFormatter().numberFromString(display.text!) {
+                return number.doubleValue
+            } else {
+                return nil
+            }
         }
         set {
-            display.text = "\(newValue)"
-            print("\(newValue)")
+            if let value = newValue {
+                display.text = "\(value)"
+                print("\(value)")
+            } else {
+                display.text = "nil"
+            }
         }
     }
 
