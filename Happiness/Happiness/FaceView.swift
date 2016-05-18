@@ -35,6 +35,13 @@ class FaceView: UIView {
     // 但是weak只能用于类或者只能被类实现的协议
     weak var dataSource: FaceViewDataSource?
     
+    func scale(gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
+    }
+    
     private struct Scaling {
         static let FaceRadiusToEyeRidiusRatio: CGFloat = 10
         static let FaceRadiusToEyeOffsetRatio: CGFloat = 3
