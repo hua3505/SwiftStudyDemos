@@ -8,10 +8,19 @@
 
 import UIKit
 
+// 声明只能被class实现
+protocol FaceViewDataSource: class {
+    func smilnessForFaceView(sender: FaceView) -> Double?
+}
+
+@IBDesignable
 class FaceView: UIView {
 
+    @IBInspectable
     var lineWidth: CGFloat = 3 { didSet { setNeedsDisplay() } }
+    @IBInspectable
     var color: UIColor = UIColor.blueColor() { didSet { setNeedsDisplay() } }
+    @IBInspectable
     var scale: CGFloat = 0.90 { didSet { setNeedsDisplay() } }
     
     var faceCenter: CGPoint {
@@ -21,6 +30,10 @@ class FaceView: UIView {
     var faceRadius: CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
+    
+    // 通常这里会是ViewController，为了防止ViewController和View相互引用导致内存无法回收，声明为weak
+    // 但是weak只能用于类或者只能被类实现的协议
+    weak var dataSource: FaceViewDataSource?
     
     private struct Scaling {
         static let FaceRadiusToEyeRidiusRatio: CGFloat = 10
@@ -81,7 +94,7 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smilness = -0.25
+        let smilness = dataSource?.smilnessForFaceView(self) ?? 0.0
         let smilePath = bezierPathForSmile(smilness)
         smilePath.stroke()
     }

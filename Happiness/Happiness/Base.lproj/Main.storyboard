@@ -19,6 +19,12 @@
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FQI-BU-ZLu" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WZ-G9-AAI" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -30,6 +36,9 @@
                             <constraint firstAttribute="trailing" secondItem="FQI-BU-ZLu" secondAttribute="trailing" id="xag-C5-sco"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="7WZ-G9-AAI" id="fX9-0m-bm1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
